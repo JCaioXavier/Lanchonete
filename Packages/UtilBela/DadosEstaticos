@@ -25,8 +25,8 @@ public class DadosEstaticos {
 
         isabela.nome = "Isabela Soares";
         isabela.cpf = "12065895462";
-        isabela.telefone = "82997552148";
-        isabela.endereco = "Santa Amelia";
+        isabela.telefone = "82997552000";
+        isabela.endereco = "Santa teresa";
 
         List<Cliente> clientes = new ArrayList<>();
         clientes.add(caio);
@@ -35,6 +35,8 @@ public class DadosEstaticos {
     }
     public static List<Funcionario> gerarFuncionario(){
         List<Funcionario> funcionarios = new ArrayList<>();
+
+        funcionarios.add(gerarAdm());
 
         Funcionario thiago = new Funcionario();
         thiago.usuario = "titimoral";
@@ -46,5 +48,28 @@ public class DadosEstaticos {
         funcionarios.add(thiago);
 
         return funcionarios;
+    }
+
+    private static Funcionario gerarAdm() {
+        Funcionario admin = new Funcionario();
+        admin.usuario = "admir";
+        admin.senha = "admin";
+        admin.nome = "Admir Admin";
+        admin.cpf = "06142556411";
+        admin.telefone = "82818368060";
+        admin.endereco = "Rua Bolsonaro Jair ";
+        return admin;
+    }
+
+    public static List<Administrador> gerarAdmin(){
+        List<Administrador> administradores = new ArrayList<>();
+
+        Administrador admin = new Administrador();
+
+        admin.usuario = "admin";
+        admin.senha = "admin";
+        administradores.add(admin);
+
+        return administradores;
     }
 }
