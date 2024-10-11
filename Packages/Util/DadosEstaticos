@@ -1,0 +1,50 @@
+package UtilBela;
+
+import EntidadesBela.Cliente;
+import EntidadesBela.Funcionario;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DadosEstaticos {
+
+    public static List<Cliente> gerarClientes(){
+        Cliente caio = new Cliente();
+        caio.usuario = "j_caio";
+        caio.senha = "Theo123";
+
+        caio.nome = "Jose Caio";
+        caio.cpf = "06142556487";
+        caio.telefone = "82985446356";
+        caio.endereco = "Unicompra farol";
+
+
+        Cliente isabela = new Cliente();
+        isabela.usuario = "isabelasr";
+        isabela.senha = "woola123";
+
+        isabela.nome = "Isabela Soares";
+        isabela.cpf = "12065895462";
+        isabela.telefone = "82997552148";
+        isabela.endereco = "Santa Amelia";
+
+        List<Cliente> clientes = new ArrayList<>();
+        clientes.add(caio);
+        clientes.add(isabela);
+        return clientes;
+    }
+    public static List<Funcionario> gerarFuncionario(){
+        List<Funcionario> funcionarios = new ArrayList<>();
+
+        Funcionario thiago = new Funcionario();
+        thiago.usuario = "titimoral";
+        thiago.senha = "lumbris123";
+        thiago.nome = "Thiago Novaes";
+        thiago.cpf = "06142556487";
+        thiago.telefone = "82998368060";
+        thiago.endereco = "Rua Doutor Carlos Gomes de Barros ";
+        funcionarios.add(thiago);
+
+        return funcionarios;
+    }
+}
