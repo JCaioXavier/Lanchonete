@@ -7,7 +7,6 @@ import static UtilBela.DadosEstaticos.*;
 import static UtilBela.GerenciadorDeClientes.*;
 import static UtilBela.RevisarOpcao.*;
 import static UtilBela.GerenciadorDeClientes.cadastrarCliente;
-import static UtilBela.GerenciadorDeFuncionarios.*;
 
 public class MainBela {
     public static void main(String[] args) {
@@ -18,7 +17,7 @@ public class MainBela {
         //TELA MENU INICIAL
         String opcaoCheckadora = " ";
 
-        int opcaoLogin, opcaoCadastro, opcaoMenu, sEn;
+        int opcaoLogin, cadastroClienteOpcao, opcaoMenu, simOuNao;
 
         boolean menuBoolean = true, loginBoolean = true, cadastroBoolean = true;
 
@@ -28,7 +27,7 @@ public class MainBela {
             do {//INICIA LOOP TELA LOGIN CADASTRO E SAIR
                 if (opcaoMenu == 1) {
                     System.out.println("LOGAR COMO:");
-                    opcaoLogin = lcOpcao(opcaoCheckadora);
+                    opcaoLogin = loginClienteOpcao(opcaoCheckadora);
 
                     if(opcaoLogin == 1){
 
@@ -41,19 +40,18 @@ public class MainBela {
                     }
                 }
                 else if (opcaoMenu == 2) {
-
                     System.out.println("CADASTRAR COMO:");
-                    opcaoCadastro = lcOpcao(opcaoCheckadora);
+                    cadastroClienteOpcao = cadastroClienteOpcao(opcaoCheckadora);
 
-                    if (opcaoCadastro == 1) {
+                    if (cadastroClienteOpcao == 1) {
                         do {//INICIA LOOP DE CADASTRO CLIENTE
                             cadastroBoolean = true;
                             Cliente novoCliente = cadastrarCliente();
                             confirmarDadosClientes(novoCliente);
 
-                            sEn = sEn(opcaoCheckadora);
+                            simOuNao = simOuNao(opcaoCheckadora);
 
-                            if (sEn == 1) {//SIM
+                            if (simOuNao == 1) {//SIM
                                 System.out.println("Cliente cadastrado com sucesso!!!!");
                                 clientes.add(novoCliente);
 
@@ -61,8 +59,9 @@ public class MainBela {
                             }
                         } while (cadastroBoolean);
                         menuBoolean = false;//ENCERRA LOOP E VOLTA PARA O MENU INICIAL
-
-
+                    }
+                    else if(cadastroClienteOpcao == 2){//Opção voltar
+                        menuBoolean = false;//encerra o loop e volta para a menu inical
                     }
                 }
                 else if (opcaoMenu == 3) {
