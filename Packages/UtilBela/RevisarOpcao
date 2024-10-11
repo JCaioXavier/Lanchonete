@@ -11,7 +11,7 @@ public class RevisarOpcao {
 
         do {
             try {
-                do{
+                do {
                     System.out.println("""
                             1 | LOGIN
                             2 | CADASTRO
@@ -19,7 +19,7 @@ public class RevisarOpcao {
 
                     opcaoCheckadora = scanner.nextLine();
                     opcao = Integer.parseInt(opcaoCheckadora);
-                }while(opcao < 1 || opcao > 3);
+                } while (opcao < 1 || opcao > 3);
                 break;
             } catch (NumberFormatException erro) {
                 System.out.println("Erro! Opção invalida. Digite novamente");
@@ -28,14 +28,37 @@ public class RevisarOpcao {
 
         return opcao;
     }
+
     //OPÇÕES PARA A TELA DE LOGIN E CADASTRO
-    public static int lcOpcao(String opcaoCheckadora){
+    public static int cadastroClienteOpcao(String opcaoCheckadora) {
         Scanner scanner = new Scanner(System.in);
         int opcao;
 
         do {
             try {
-                do{
+                do {
+                    System.out.println("""
+                            1 | CLIENTE
+                            2 | VOLTAR""");
+
+                    opcaoCheckadora = scanner.nextLine();
+                    opcao = Integer.parseInt(opcaoCheckadora);
+                } while (opcao < 1 || opcao > 2);
+                break;
+            } catch (NumberFormatException erro) {
+                System.out.println("Erro! Opção invalida. Digite novamente");
+            }
+        } while (true);
+        return opcao;
+    }
+
+    public static int loginClienteOpcao(String opcaoCheckadora) {
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+
+        do {
+            try {
+                do {
                     System.out.println("""
                             1 | CLIENTE
                             2 | FUNCIONARIO
@@ -43,7 +66,7 @@ public class RevisarOpcao {
 
                     opcaoCheckadora = scanner.nextLine();
                     opcao = Integer.parseInt(opcaoCheckadora);
-                }while(opcao < 1 || opcao > 3);
+                } while (opcao < 1 || opcao > 3);
                 break;
             } catch (NumberFormatException erro) {
                 System.out.println("Erro! Opção invalida. Digite novamente");
@@ -53,8 +76,7 @@ public class RevisarOpcao {
 
         return opcao;
     }
-
-    public static int sEn (String opcaoCheckadora) {
+    public static int simOuNao(String opcaoCheckadora) {
         Scanner scanner = new Scanner(System.in);
         int opcao;
 
@@ -76,5 +98,4 @@ public class RevisarOpcao {
 
         return opcao;
     }
-
 }
