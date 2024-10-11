@@ -1,1 +1,75 @@
+import java.util.List;
+import java.util.Scanner;
 
+import EntidadesBela.*;
+
+import static UtilBela.DadosEstaticos.*;
+import static UtilBela.GerenciadorDeClientes.*;
+import static UtilBela.RevisarOpcao.*;
+import static UtilBela.GerenciadorDeClientes.cadastrarCliente;
+import static UtilBela.GerenciadorDeFuncionarios.*;
+
+public class MainBela {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<Cliente> clientes = gerarClientes();
+        List<Funcionario> funcionarios = gerarFuncionario();
+
+        //TELA MENU INICIAL
+        String opcaoCheckadora = " ";
+
+        int opcaoLogin, opcaoCadastro, opcaoMenu, sEn;
+
+        boolean menuBoolean = true, loginBoolean = true, cadastroBoolean = true;
+
+        do {// INICIA LOOP TELA MENU
+            opcaoMenu = opcaoMenu(opcaoCheckadora);
+
+            do {//INICIA LOOP TELA LOGIN CADASTRO E SAIR
+                if (opcaoMenu == 1) {
+                    System.out.println("LOGAR COMO:");
+                    opcaoLogin = lcOpcao(opcaoCheckadora);
+
+                    if(opcaoLogin == 1){
+
+                    }
+                    else if(opcaoLogin == 2){
+
+                    }
+                    else if (opcaoLogin == 3) {
+                        menuBoolean = false;//ENCERRA LOOP LOGAR E VOLTA PARA
+                    }
+                }
+                else if (opcaoMenu == 2) {
+
+                    System.out.println("CADASTRAR COMO:");
+                    opcaoCadastro = lcOpcao(opcaoCheckadora);
+
+                    if (opcaoCadastro == 1) {
+                        do {//INICIA LOOP DE CADASTRO CLIENTE
+                            cadastroBoolean = true;
+                            Cliente novoCliente = cadastrarCliente();
+                            confirmarDadosClientes(novoCliente);
+
+                            sEn = sEn(opcaoCheckadora);
+
+                            if (sEn == 1) {//SIM
+                                System.out.println("Cliente cadastrado com sucesso!!!!");
+                                clientes.add(novoCliente);
+
+                                cadastroBoolean = false;//ENCERRA LOOP DE CADASTRO CLIENTE
+                            }
+                        } while (cadastroBoolean);
+                        menuBoolean = false;//ENCERRA LOOP E VOLTA PARA O MENU INICIAL
+
+
+                    }
+                }
+                else if (opcaoMenu == 3) {
+                    System.out.println("Encerrando o sistema.");
+                    return;
+                }
+            }while(menuBoolean);
+        }while(true);
+    }
+}
