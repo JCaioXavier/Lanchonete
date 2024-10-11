@@ -8,4 +8,6 @@ public class Funcionario {
     public String cpf;
     public String telefone;
     public String endereco;
+    public boolean adm;
 }
+
